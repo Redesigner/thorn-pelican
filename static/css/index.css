@@ -1,0 +1,11 @@
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 0;
+}
+
+@media only screen and (max-device-width: 1024px) {
+    h1 {
+        padding-top: 2rem;
+    }
+}

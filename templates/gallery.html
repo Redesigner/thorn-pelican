@@ -1,0 +1,23 @@
+{% block content %}
+<div class="main-content">
+    <div class="exhibit">
+        <meta class="srccontainer" url="{{ article.imageurl }}" title="{{ article.short }}">
+        <ul class="mini-gallery">
+        </ul>
+    </div>
+    <div>
+        <h1>{{ article.title }}</h1>
+        {{ article.content }}
+
+        {% if article.downloads %}
+            {% include 'download.html' %}
+        {% elif article.repo %}
+            <a href="{{article.repo}}">
+                <img src="{{ SITEURL }}/theme/img/GitHub-Mark-Light-32px.png" title="Check it out on GitHub!" alt="GitHub Logo" style="margin-bottom: 1rem;">
+            </a>
+        {% endif %}
+        <hr>
+        <h3 class="timestamp">{{ article.date|strftime('%B %Y') }}</h3>
+    </div>
+</div>
+{% endblock %}

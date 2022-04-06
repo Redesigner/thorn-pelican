@@ -1,0 +1,16 @@
+<br>
+<div class="downloads">
+    {% set downloadLinks = article.downloads.split(';') %}
+    {% for downloadLink in downloadLinks %}
+        {% set filename = downloadLink.rsplit('/', 1)[1] %}
+        {% set extension = downloadLink.rsplit('.', 1)[1] %}
+        <a href="{{ downloadLink }}" download>
+            {{ filename }}<img src="theme/img/icons/{{ extension }}.png">
+        </a>
+    {% endfor %}
+    {% if article.repo %}
+        <a href="{{ article.repo }}" title="Check it out on GitHub!" alt="GitHub Logo" download>
+            <img src="theme/img/GitHub-Mark-Light-32px.png">
+        </a>
+    {% endif %}
+</div>
